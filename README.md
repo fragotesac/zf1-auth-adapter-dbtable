@@ -6,4 +6,4 @@ Zend Framework 1 - Auth_Adapter_DbTable
 [![Total Downloads](https://poser.pugx.org/diablomedia/zendframework1-auth-adapter-dbtable/downloads)](https://packagist.org/packages/diablomedia/zendframework1-auth-adapter-dbtable)
 [![License](https://poser.pugx.org/diablomedia/zendframework1-auth-adapter-dbtable/license)](https://packagist.org/packages/diablomedia/zendframework1-auth-adapter-dbtable)
 
-This is just the Zend_Auth_Adapter_DbTable component extracted from our fork of the Zend Framework 1 repo (https://github.com/diablomedia/zf1). Optional adapters may have to be installed separately.
+This is just the Zend_Auth_Adapter_DbTable component extracted from our fork of the Zend Framework 1 repo (https://github.com/diablomedia/zf1).
