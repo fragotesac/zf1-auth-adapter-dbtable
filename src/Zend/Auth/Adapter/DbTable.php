@@ -36,7 +36,7 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
      *
      * @var Zend_Db_Adapter_Abstract
      */
-    protected $_zendDb = null;
+    protected $_zendDb;
 
     /**
      * @var Zend_Db_Select
@@ -144,21 +144,21 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
      *
      * @param Zend_Db_Adapter_Abstract $zendDb
      * @throws Zend_Auth_Adapter_Exception
-     * @return Zend_Auth_Adapter_DbTable
+     * @return $this
      */
     protected function _setDbAdapter(Zend_Db_Adapter_Abstract $zendDb = null)
     {
-        $this->_zendDb = $zendDb;
-
         /**
          * If no adapter is specified, fetch default database adapter.
          */
-        if(null === $this->_zendDb) {
-            $this->_zendDb = Zend_Db_Table_Abstract::getDefaultAdapter();
-            if (null === $this->_zendDb) {
+        if (null === $zendDb) {
+            $zendDb = Zend_Db_Table_Abstract::getDefaultAdapter();
+            if (null === $zendDb) {
                 throw new Zend_Auth_Adapter_Exception('No database adapter present');
             }
         }
+
+        $this->_zendDb = $zendDb;
 
         return $this;
     }
@@ -167,7 +167,7 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
      * setTableName() - set the table name to be used in the select query
      *
      * @param  string $tableName
-     * @return Zend_Auth_Adapter_DbTable Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setTableName($tableName)
     {
@@ -179,7 +179,7 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
      * setIdentityColumn() - set the column name to be used as the identity column
      *
      * @param  string $identityColumn
-     * @return Zend_Auth_Adapter_DbTable Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setIdentityColumn($identityColumn)
     {
@@ -191,7 +191,7 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
      * setCredentialColumn() - set the column name to be used as the credential column
      *
      * @param  string $credentialColumn
-     * @return Zend_Auth_Adapter_DbTable Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setCredentialColumn($credentialColumn)
     {
@@ -214,7 +214,7 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
      *  'MD5(?)'
      *
      * @param  string $treatment
-     * @return Zend_Auth_Adapter_DbTable Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setCredentialTreatment($treatment)
     {
@@ -226,7 +226,7 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
      * setIdentity() - set the value to be used as the identity
      *
      * @param  string $value
-     * @return Zend_Auth_Adapter_DbTable Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setIdentity($value)
     {
@@ -239,7 +239,7 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
      * to be used, should be supplied in parameterized form, such as 'MD5(?)' or 'PASSWORD(?)'
      *
      * @param  string $credential
-     * @return Zend_Auth_Adapter_DbTable Provides a fluent interface
+     * @return $this Provides a fluent interface
      */
     public function setCredential($credential)
     {
@@ -253,7 +253,7 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
      * false) parameters. Default is false.
      *
      * @param  int|bool $flag
-     * @return Zend_Auth_Adapter_DbTable
+     * @return $this
      */
     public function setAmbiguityIdentity($flag)
     {
