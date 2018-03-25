@@ -20,26 +20,6 @@
  * @version    $Id$
  */
 
-/**
- * @see Zend_Db_Adapter_Pdo_Sqlite
- */
-require_once 'Zend/Db/Adapter/Pdo/Sqlite.php';
-
-
-/**
- * This is required because Zend_Db_Adapter_Pdo_Sqlite uses Zend_Db constants
- * but does not load the file containing the Zend_Db class.
- *
- * @see Zend_Db
- */
-require_once 'Zend/Db.php';
-
-
-/**
- * @see Zend_Auth_Adapter_DbTable
- */
-require_once 'Zend/Auth/Adapter/DbTable.php';
-
 
 /**
  * @category   Zend
@@ -337,7 +317,7 @@ class Zend_Auth_Adapter_DbTable_BasicSqliteTest extends PHPUnit\Framework\TestCa
     }
 
     /**
-     *
+     * @doesNotPerformAssertions
      * @group ZF-3068
      */
     public function testDbTableAdapterUsesCaseFolding()
@@ -362,7 +342,6 @@ class Zend_Auth_Adapter_DbTable_BasicSqliteTest extends PHPUnit\Framework\TestCa
     {
         $this->expectException(\Zend_Auth_Adapter_Exception::class);
 
-        require_once('Zend/Db/Table/Abstract.php');
         // preserve default db adapter between cases
         $tmp = Zend_Db_Table_Abstract::getDefaultAdapter();
 
@@ -386,7 +365,6 @@ class Zend_Auth_Adapter_DbTable_BasicSqliteTest extends PHPUnit\Framework\TestCa
      */
     public function testAuthenticateWithDefaultDbAdapter()
     {
-        require_once('Zend/Db/Table/Abstract.php');
         // preserve default adapter between cases
         $tmp = Zend_Db_Table_Abstract::getDefaultAdapter();
 
