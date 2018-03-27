@@ -5,11 +5,8 @@
     beStrictAboutTestsThatDoNotTestAnything="true"
     backupGlobals="true"
     stderr="true"
-    colors="true">
-    <php>
-        <const name="TESTS_ZEND_AUTH_ADAPTER_DBTABLE_PDO_SQLITE_ENABLED" value="false" />
-        <const name="TESTS_ZEND_AUTH_ADAPTER_DBTABLE_PDO_SQLITE_DATABASE" value=":memory:" />
-    </php>
+    colors="true"
+    bootstrap="./phpunit-bootstrap.php">
     <filter>
         <whitelist addUncoveredFilesFromWhitelist="true">
             <directory suffix=".php">./src</directory>
