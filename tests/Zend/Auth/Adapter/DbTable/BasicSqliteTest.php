@@ -233,7 +233,7 @@ class Zend_Auth_Adapter_DbTable_BasicSqliteTest extends PHPUnit\Framework\TestCa
         $this->_adapter->authenticate();
         $selectAfterAuth = $this->_adapter->getDbSelect();
         $whereParts      = $selectAfterAuth->getPart(Zend_Db_Select::WHERE);
-        $this->assertEquals(1, count($whereParts));
+        $this->assertCount(1, $whereParts);
         $this->assertEquals('(1 = 1)', array_pop($whereParts));
     }
 

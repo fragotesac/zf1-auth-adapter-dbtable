@@ -16,14 +16,14 @@
         "diablomedia/zendframework1-db": "^1.0.0"
     },
     "autoload": {
-        "psr-0": {
-            "Zend_": "src/"
-        }
-    },
-    "autoload-dev": {
         "classmap": [
             "src/Zend/Auth/Adapter/DbTable.php"
         ]
+    },
+    "autoload-dev": {
+        "psr-0": {
+            "Zend_": "tests/"
+        }
     },
     "require-dev": {
         "phpunit/phpunit": "^6.0",

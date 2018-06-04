@@ -11,7 +11,10 @@ return PhpCsFixer\Config::create()
     ->setRules([
         '@PSR2' => true,
         '@PHPUnit60Migration:risky' => true,
-        'binary_operator_spaces' => ['align_double_arrow' => true, 'align_equals' => true],
+        'binary_operator_spaces' => [
+            'default' => 'align_single_space_minimal',
+            'operators' => ['||' => null, '&&' => null]
+        ],
         'single_quote' => true,
         'array_syntax' => ['syntax' => 'long'],
         'concat_space' => ['spacing' => 'one'],
