@@ -121,7 +121,7 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
         Zend_Db_Adapter_Abstract $zendDb = null,
         $tableName = null,
         $identityColumn = null,
-                                $credentialColumn = null,
+        $credentialColumn = null,
         $credentialTreatment = null
     ) {
         $this->_setDbAdapter($zendDb);
