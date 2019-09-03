@@ -422,12 +422,12 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
                 $this->_zendDb->quoteIdentifier($this->_credentialColumn, true)
                 . ' = ' . $this->_credentialTreatment,
                 $this->_credential
-                )
+            )
             . ' THEN 1 ELSE 0 END) AS '
             . $this->_zendDb->quoteIdentifier(
                 $this->_zendDb->foldCase('zend_auth_credential_match')
-                )
-            );
+            )
+        );
 
         // get select
         $dbSelect = clone $this->getDbSelect();
@@ -526,6 +526,6 @@ class Zend_Auth_Adapter_DbTable implements Zend_Auth_Adapter_Interface
             $this->_authenticateResultInfo['code'],
             $this->_authenticateResultInfo['identity'],
             $this->_authenticateResultInfo['messages']
-            );
+        );
     }
 }

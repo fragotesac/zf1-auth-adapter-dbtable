@@ -218,7 +218,7 @@ class Zend_Auth_Adapter_DbTable_BasicSqliteTest extends PHPUnit\Framework\TestCa
         $this->assertEquals(
             'SELECT "users".*, (CASE WHEN "password" = \'my_password\' THEN 1 ELSE 0 END) AS "zend_auth_credential_match" FROM "users" WHERE (1 = 1) AND ("username" = \'my_username\')',
             $profiler->getLastQueryProfile()->getQuery()
-            );
+        );
     }
 
     /**
