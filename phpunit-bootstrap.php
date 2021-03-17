@@ -1,6 +1,6 @@
 <?php
 
-if (getenv('TRAVIS')) {
+if (getenv('GITHUB_ACTIONS')) {
     /**
      * Zend_Auth_Adapter_DbTable tests
      */
