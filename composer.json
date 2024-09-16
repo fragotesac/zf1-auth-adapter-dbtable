@@ -1,5 +1,5 @@
 {
-    "name": "diablomedia/zendframework1-auth-adapter-dbtable",
+    "name": "fragotesac/zf1-auth-adapter-dbtable",
     "description": "Zend Framework 1 Auth_Adapter_DbTable component",
     "type": "library",
     "keywords": [
